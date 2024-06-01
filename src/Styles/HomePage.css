@@ -1,0 +1,165 @@
+.homepage {
+  background-color: #ffe4e1;
+  padding: 20px;
+}
+
+.welcome-page {
+  text-align: center;
+  margin: 20px;
+}
+
+
+.shop-now {
+  background-color: #ff69b4;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.slider-section {
+  margin: 20px 0;
+}
+
+.slider-section .slide img {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+.products-section, .reviews-section {
+  margin: 20px 0;
+}
+
+.products-list, .reviews-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.product-card .view-details {
+  display: inline-block;
+  background-color: #ff69b4;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-bottom: 10px; 
+}
+
+.review {
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 15px;
+  width: 300px;
+  transition: box-shadow 0.3s ease;
+}
+
+.review:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.review h3 {
+  margin: 0 0 10px;
+}
+
+form {
+  margin-top: 20px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 6px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding-right: 3px;
+  padding-left: 3px;
+}
+
+form button {
+  background-color: #ff69b4;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-prompt {
+  text-align: center;
+}
+
+.login-prompt p {
+  margin-bottom: 20px;
+}
+
+.contact-section {
+  padding: 50px 20px; 
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.contact-section h2 {
+  margin-bottom: 20px;
+}
+
+.contact-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin-bottom: 10px;
+}
+
+.contact-form input {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%; 
+  max-width: 400px; 
+  box-sizing: border-box; 
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 100%; 
+  max-width: 400px; 
+  box-sizing: border-box;
+}
+.login-page-text{
+  text-align: center;
+}
+.register-link{
+  text-align: center;
+}
+
+.register-page h2{
+  text-align: center;
+}

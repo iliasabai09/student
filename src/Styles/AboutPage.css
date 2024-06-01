@@ -1,0 +1,58 @@
+/* src/AboutUs.css */
+.about-us-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background: url('../images/background-image.jpg') no-repeat center center/cover;
+  color: #fff;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  padding: 40px;
+  border-radius: 10px;
+  max-width: 900px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+  color: #e91e63;
+  font-size: 3em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.subtitle {
+  color: #e91e63;
+  font-size: 2em;
+  margin-top: 30px;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+p {
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-item {
+  display: flex;
+  align-items:
+  center;
+  font-size: 1.2em;
+}
+
+.icon {
+    margin-right: 10px;
+    font-size: 1.5em;
+}

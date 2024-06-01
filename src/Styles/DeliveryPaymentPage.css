@@ -1,0 +1,54 @@
+.delivery-payment-wrapper {
+  background-color: #ffe4e1; 
+  padding: 40px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #fff; 
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  color: #ff69b4;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+}
+
+.subtitle {
+  color: #333;
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+.delivery-section,
+.payment-section,
+.delivery-methods-section,
+.payment-methods-section {
+  margin-bottom: 30px;
+}
+
+.method-title {
+  color: #ff69b4;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+p {
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
