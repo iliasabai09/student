@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/beauty-store/static/css/main.80e30cc8.css",
-    "main.js": "/beauty-store/static/js/main.61286091.js",
-    "static/js/453.ed3810f9.chunk.js": "/beauty-store/static/js/453.ed3810f9.chunk.js",
-    "static/media/background-image.jpg": "/beauty-store/static/media/background-image.bbfee75052537b5ea80d.jpg",
-    "static/media/logo.png": "/beauty-store/static/media/logo.11ba274b1efa608f0169.png",
-    "static/media/slick.svg": "/beauty-store/static/media/slick.2630a3e3eab21c607e21.svg",
-    "static/media/slick.eot": "/beauty-store/static/media/slick.a4e97f5a2a64f0ab1323.eot",
-    "static/media/slick.ttf": "/beauty-store/static/media/slick.c94f7671dcc99dce43e2.ttf",
-    "static/media/slick.woff": "/beauty-store/static/media/slick.295183786cd8a1389865.woff",
-    "index.html": "/beauty-store/index.html",
-    "main.80e30cc8.css.map": "/beauty-store/static/css/main.80e30cc8.css.map",
-    "main.61286091.js.map": "/beauty-store/static/js/main.61286091.js.map",
-    "453.ed3810f9.chunk.js.map": "/beauty-store/static/js/453.ed3810f9.chunk.js.map"
+    "main.css": "/beauttystore-front/static/css/main.488f075f.css",
+    "main.js": "/beauttystore-front/static/js/main.8abee0db.js",
+    "static/js/453.ed3810f9.chunk.js": "/beauttystore-front/static/js/453.ed3810f9.chunk.js",
+    "static/media/background-image.jpg": "/beauttystore-front/static/media/background-image.bbfee75052537b5ea80d.jpg",
+    "static/media/logo.png": "/beauttystore-front/static/media/logo.11ba274b1efa608f0169.png",
+    "static/media/slick.svg": "/beauttystore-front/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/beauttystore-front/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/beauttystore-front/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/beauttystore-front/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/beauttystore-front/index.html",
+    "main.488f075f.css.map": "/beauttystore-front/static/css/main.488f075f.css.map",
+    "main.8abee0db.js.map": "/beauttystore-front/static/js/main.8abee0db.js.map",
+    "453.ed3810f9.chunk.js.map": "/beauttystore-front/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.80e30cc8.css",
-    "static/js/main.61286091.js"
+    "static/css/main.488f075f.css",
+    "static/js/main.8abee0db.js"
   ]
 }
