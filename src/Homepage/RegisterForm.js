@@ -1,47 +1,62 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-const RegisterForm = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+const Register = () => {
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const navigate = useNavigate();
+  const [message, setMessage] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
-      localStorage.setItem('userData', JSON.stringify({ name, email, password }));
-      navigate('/login');
-    } else {
-      alert('Passwords do not match');
+    console.log('Submitting form:', { username, password });
+
+    try {
+      const response = await axios.post('http://localhost:5001/register', {
+        username,
+        password
+      });
+      console.log('Response:', response.data);
+      setMessage('User registered successfully');
+    } catch (err) {
+      console.error('Error registering user', err);
+
+      // Проверяем, есть ли err.response и err.response.data
+      if (err.response && err.response.data) {
+        setMessage(`Error registering user: ${err.response.data}`);
+      } else {
+        setMessage('Error registering user: Network error or server is not responding');
+      }
     }
   };
 
   return (
-    <div className="register-page">
-      <h2>Регистрация</h2>
+    <div>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Имя:</label>
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
         </div>
         <div>
-          <label>Email:</label>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
         </div>
-        <div>
-          <label>Пароль:</label>
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        </div>
-        <div>
-          <label>Повторный пароль:</label>
-          <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
-        </div>
-        <button type="submit">Зарегистрироваться</button>
+        <button type="submit">Register</button>
       </form>
+      {message && <p>{message}</p>}
     </div>
   );
 };
 
-export default RegisterForm;
+export default Register;
