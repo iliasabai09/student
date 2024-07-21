@@ -9,12 +9,16 @@ const FavoritesPage = ({ favorites, setFavorites }) => {
   }, [favorites]);
 
   const calculateTotalSum = () => {
-    const sum = favorites.reduce((acc, item) => acc + parseFloat(item.price.replace('₸', '').replace(' ', '')), 0);
+    // Конвертируем цену в число, удаляя символы валюты и пробелы
+    const sum = favorites.reduce((acc, item) => 
+      acc + parseFloat(item.price.replace('₸', '').replace(' ', '')), 0
+    );
     setTotalSum(sum);
   };
 
   const removeFromFavorites = (productId) => {
-    const updatedFavorites = favorites.filter((item, index) => index !== productId);
+    // Удаляем товар из избранного по уникальному идентификатору
+    const updatedFavorites = favorites.filter((item) => item.id !== productId);
     setFavorites(updatedFavorites);
   };
 
@@ -22,11 +26,16 @@ const FavoritesPage = ({ favorites, setFavorites }) => {
     <div className="favorites-page">
       <h2>Избранное</h2>
       <div className="favorites-list">
-        {favorites.map((item, index) => (
-          <div key={index} className="favorite-item">
+        {favorites.map((item) => (
+          <div key={item.id} className="favorite-item">
             <img src={item.image} alt={item.name} />
             <p>{item.name} - {item.price}</p>
-            <button className="delete-button" onClick={() => removeFromFavorites(index)}>✕</button>
+            <button 
+              className="delete-button" 
+              onClick={() => removeFromFavorites(item.id)}
+            >
+              ✕
+            </button>
           </div>
         ))}
       </div>

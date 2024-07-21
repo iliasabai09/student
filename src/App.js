@@ -13,7 +13,7 @@ import AccountPage from './AccountPage/AccountPage';
 import './Styles/App.css';
 import ProductCard from './Gallerypage/ProductCard';
 import DeliveryPage from './DeliveryPaymentPage/DeliveryPaymentPage';
-import { topProducts } from './Homepage/products';
+import AdminPanel from './Components/AdminPanel'; // Импортируем AdminPanel
 
 const App = () => {
   const [favorites, setFavorites] = useState([]);
@@ -33,7 +33,7 @@ const App = () => {
         <Header />
         <main>
           <Routes>
-            <Route path="/" element={<HomePage topProducts={topProducts} />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/gallery" element={<GalleryPage addToCart={addToCart} addToFavorites={addToFavorites} />} />
             <Route path="/product/:id" element={<ProductCard addToCart={addToCart} addToFavorites={addToFavorites} />} />
@@ -43,6 +43,7 @@ const App = () => {
             <Route path="/account" element={<AccountPage />} />
             <Route path="/cart" element={<CartPage cart={cart} setCart={setCart} />} />
             <Route path="/delivery" element={<DeliveryPage />} />
+            <Route path="/admin/panel" element={<AdminPanel />} /> {/* Добавляем маршрут для админ панели */}
           </Routes>
         </main>
         <Footer />
@@ -52,4 +53,3 @@ const App = () => {
 };
 
 export default App;
-

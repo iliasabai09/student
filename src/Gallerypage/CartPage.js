@@ -9,12 +9,15 @@ const CartPage = ({ cart, setCart }) => {
   }, [cart]);
 
   const calculateTotalSum = () => {
-    const sum = cart.reduce((acc, item) => acc + parseFloat(item.price.replace('₸', '').replace(' ', '')), 0);
+    // Конвертируем цену в число, удаляя символы валюты и пробелы
+    const sum = cart.reduce((acc, item) => 
+      acc + parseFloat(item.price.replace('₸', '').replace(' ', '')), 0
+    );
     setTotalSum(sum);
   };
 
   const removeFromCart = (productId) => {
-    const updatedCart = cart.filter((item, index) => index !== productId);
+    const updatedCart = cart.filter((item) => item.id !== productId);
     setCart(updatedCart);
   };
 
@@ -22,11 +25,16 @@ const CartPage = ({ cart, setCart }) => {
     <div className="cart-page">
       <h2>Корзина</h2>
       <div className="cart-list">
-        {cart.map((item, index) => (
-          <div key={index} className="cart-item">
+        {cart.map((item) => (
+          <div key={item.id} className="cart-item">
             <img src={item.image} alt={item.name} />
             <p>{item.name} - {item.price}</p>
-            <button className="delete-button" onClick={() => removeFromCart(index)}>✕</button>
+            <button 
+              className="delete-button" 
+              onClick={() => removeFromCart(item.id)}
+            >
+              ✕
+            </button>
           </div>
         ))}
       </div>
