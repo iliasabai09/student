@@ -10,10 +10,10 @@ import RegisterForm from './Homepage/RegisterForm';
 import FavoritesPage from './Gallerypage/FavoritesPage';
 import CartPage from './Gallerypage/CartPage';
 import AccountPage from './AccountPage/AccountPage';
-import './Styles/App.css';
 import ProductCard from './Gallerypage/ProductCard';
 import DeliveryPage from './DeliveryPaymentPage/DeliveryPaymentPage';
-import AdminPanel from './Components/AdminPanel'; // Импортируем AdminPanel
+import AdminPanel from './Components/AdminPanel';
+import CheckoutPage from './Gallerypage/CheckoutPage'; // Импортируйте компонент CheckoutPage
 
 const App = () => {
   const [favorites, setFavorites] = useState([]);
@@ -26,6 +26,10 @@ const App = () => {
   const addToFavorites = (product) => {
     setFavorites([...favorites, product]);
   };
+
+  const totalSum = cart.reduce((acc, item) =>
+    acc + parseFloat(item.price.replace('₸', '').replace(' ', '')), 0
+  );
 
   return (
     <Router>
@@ -42,8 +46,9 @@ const App = () => {
             <Route path="/favorites" element={<FavoritesPage favorites={favorites} setFavorites={setFavorites} />} />
             <Route path="/account" element={<AccountPage />} />
             <Route path="/cart" element={<CartPage cart={cart} setCart={setCart} />} />
+            <Route path="/checkout" element={<CheckoutPage cart={cart} totalSum={totalSum} />} /> {/* Добавьте маршрут для CheckoutPage */}
             <Route path="/delivery" element={<DeliveryPage />} />
-            <Route path="/admin/panel" element={<AdminPanel />} /> {/* Добавляем маршрут для админ панели */}
+            <Route path="/admin/panel" element={<AdminPanel />} />
           </Routes>
         </main>
         <Footer />

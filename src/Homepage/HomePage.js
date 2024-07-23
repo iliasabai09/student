@@ -5,24 +5,14 @@ import '../Styles/HomePage.css';
 import LoginForm from './LoginForm';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { topProducts } from './products';
 
-const HomePage = ({ topProducts }) => {
+const HomePage = () => {
   const [reviews, setReviews] = useState([
     { name: 'Алиса', comment: 'Отличные продукты!' },
     { name: 'Даша', comment: 'Отличное качество и быстрая доставка.' }
   ]);
   const [newReview, setNewReview] = useState({ name: '', comment: '' });
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    if (currentUser) {
-      const userData = JSON.parse(localStorage.getItem('userData'));
-      if (userData) {
-        setUser(userData.name);
-      }
-    }
-  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,10 +25,6 @@ const HomePage = ({ topProducts }) => {
     setNewReview({ name: '', comment: '' });
   };
 
-  const handleLogin = (username) => {
-    setUser(username);
-  };
-
   const handleButtonClick = () => {
     window.location.reload();
   };
@@ -49,17 +35,17 @@ const HomePage = ({ topProducts }) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true, 
-    autoplaySpeed: 3000,
-  };
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
 
   return (
     <div className="homepage">
       <div className="welcome-page">
-      <h1>Добро пожаловать!</h1>
-      <p>Ваш магазин для всего, что вам нужно для красоты!</p>
-      <br></br>
-      <Link to="/gallery" className="shop-now">Купить сейчас</Link>
+        <h1>Добро пожаловать!</h1>
+        <p>Ваш магазин для всего, что вам нужно для красоты!</p>
+        <br></br>
+        <Link to="/gallery" className="shop-now">Купить сейчас</Link>
       </div>
 
       <div className="slider-section">
@@ -89,7 +75,7 @@ const HomePage = ({ topProducts }) => {
             </div>
           ))}
         </div>
-      </div>
+      </div>
 
       <div className="reviews-section">
         <h2>Отзывы клиентов</h2>
@@ -101,56 +87,50 @@ const HomePage = ({ topProducts }) => {
             </div>
           ))}
         </div>
-        {user ? (
-          <form onSubmit={handleSubmit}>
-            <h3>Оставить отзыв</h3>
-            <div>
-              <label htmlFor="name">Имя:</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={newReview.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="comment">Комментарий:</label>
-              <textarea
-                id="comment"
-                name="comment"
-                value={newReview.comment}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <button type="submit">Добавить отзыв</button>
-          </form>
-        ) : (
-          <div className="login-prompt">
-            <p>Чтобы оставить отзыв, зайдите в свой аккаунт</p>
-            <LoginForm onLogin={handleLogin} />
-          </div>
-        )}
-      </div>
-
-      <div className="contact-section">
-          <h2>Нужна наша консультация?</h2>
-          <p>Оставьте свой адрес электронной почты и мы в скором времени свяжемся с вами!</p>
-          <form className="contact-form">
-            <label htmlFor="email">Email:</label>
+        
+        <form onSubmit={handleSubmit}>
+          <h3>Оставить отзыв</h3>
+          <div>
+            <label htmlFor="name">Имя:</label>
             <input
-              type="email"
-              id="email"
-              name="email"
+              type="text"
+              id="name"
+              name="name"
+              value={newReview.name}
+              onChange={handleChange}
               required
             />
-            <button type="button" onClick={handleButtonClick}>Отправить</button>
-          </form>
-        </div>
+          </div>
+          <div>
+            <label htmlFor="comment">Комментарий:</label>
+            <textarea
+              id="comment"
+              name="comment"
+              value={newReview.comment}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <button type="submit">Добавить отзыв</button>
+        </form>
+      </div>
+
+      <div className="contact-section">
+        <h2>Нужна наша консультация?</h2>
+        <p>Оставьте свой адрес электронной почты и мы в скором времени свяжемся с вами!</p>
+        <form className="contact-form">
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+          />
+          <button type="button" onClick={handleButtonClick}>Отправить</button>
+        </form>
+      </div>
     </div>
   );
 };
 
-export default HomePage;
+export default HomePage;

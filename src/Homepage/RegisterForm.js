@@ -61,7 +61,6 @@ const Register = () => {
         </div>
         <button type="submit">Register</button>
       </form>
-      <button onClick={goToAdminPanel} className="admin-button">Для админов</button>
       {message && <p>{message}</p>}
     </div>
   );

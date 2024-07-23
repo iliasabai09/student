@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Импортируйте useNavigate
 import '../Styles/CartPage.css';
 
 const CartPage = ({ cart, setCart }) => {
   const [totalSum, setTotalSum] = useState(0);
+  const navigate = useNavigate(); // Инициализируйте useNavigate
 
   useEffect(() => {
     calculateTotalSum();
   }, [cart]);
 
   const calculateTotalSum = () => {
-    // Конвертируем цену в число, удаляя символы валюты и пробелы
     const sum = cart.reduce((acc, item) => 
       acc + parseFloat(item.price.replace('₸', '').replace(' ', '')), 0
     );
@@ -19,6 +20,10 @@ const CartPage = ({ cart, setCart }) => {
   const removeFromCart = (productId) => {
     const updatedCart = cart.filter((item) => item.id !== productId);
     setCart(updatedCart);
+  };
+
+  const handleCheckout = () => {
+    navigate('/checkout'); // Используйте navigate для перехода
   };
 
   return (
@@ -42,7 +47,7 @@ const CartPage = ({ cart, setCart }) => {
         <h3>Сумма заказа</h3>
         <p>Стоимость продуктов: <span>{totalSum.toLocaleString()} ₸</span></p>
         <p>Итого: <span>{totalSum.toLocaleString()} ₸</span></p>
-        <button className="order-button">Оформить заказ</button>
+        <button className="order-button" onClick={handleCheckout}>Оформить заказ</button>
       </div>
     </div>
   );

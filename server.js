@@ -1,6 +1,4 @@
-// server.js или app.js
-
-require('dotenv').config(); // Загрузка переменных окружения из файла .env
+require('dotenv').config(); 
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -8,23 +6,21 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
-const { jwtSecret } = require('./config'); // Убедитесь, что у вас есть этот файл с jwtSecret
+const { jwtSecret } = require('./config'); 
 
-// Инициализация приложения
 const app = express();
 const port = process.env.PORT || 5002;
 
-// Настройка CORS
 app.use(cors({
-  origin: 'http://localhost:3000', // Разрешенный домен вашего клиентского приложения
+  origin: 'http://localhost:3000',
   methods: 'GET,POST,PUT,DELETE',
   allowedHeaders: 'Content-Type,Authorization'
 }));
 
 app.use(bodyParser.json());
 
-// Подключение к базе данных MongoDB Atlas
-const mongoURI = process.env.MONGO_URI; // Использование переменной окружения
+
+const mongoURI = process.env.MONGO_URI; 
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -32,7 +28,6 @@ mongoose.connect(mongoURI, {
   .then(() => console.log('Connected to MongoDB Atlas'))
   .catch(err => console.error('Failed to connect to MongoDB Atlas', err));
 
-// Модели данных
 const User = mongoose.model('User', new mongoose.Schema({
   username: { type: String, required: true },
   password: { type: String, required: true }
@@ -44,7 +39,7 @@ const Product = mongoose.model('Product', new mongoose.Schema({
   price: { type: Number, required: true }
 }));
 
-// Роуты для регистрации и входа
+
 app.post('/register', async (req, res) => {
   const { username, password } = req.body;
   console.log('Register request data:', { username, password });
@@ -82,7 +77,6 @@ app.post('/login', async (req, res) => {
       return res.status(401).json({ message: 'Invalid username or password' });
     }
 
-    // Создание токена для авторизации
     const token = jwt.sign({ userId: user._id }, jwtSecret, { expiresIn: '1h' });
     res.json({ token });
   } catch (error) {
@@ -104,16 +98,13 @@ app.get('/user', async (req, res) => {
   }
 });
 
-// Роуты для админ-панели и продуктов
 app.post('/admin/login', (req, res) => {
     const { username, password } = req.body;
-  
-    // Игнорируем проверку логина и пароля
+
     const token = jwt.sign({ username }, jwtSecret, { expiresIn: '1h' });
     res.json({ token });
 });
 
-// Роут для добавления продуктов
 app.post('/api/products', async (req, res) => {
   console.log('Received data:', req.body);
 
@@ -133,7 +124,6 @@ app.post('/api/products', async (req, res) => {
   }
 });
 
-// Запуск сервера
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
