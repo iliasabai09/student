@@ -19,6 +19,7 @@ const Register = () => {
       });
       console.log('Response:', response.data);
       setMessage('User registered successfully');
+      goToAdminPanel()
     } catch (err) {
       console.error('Error registering user', err);
 
@@ -33,7 +34,7 @@ const Register = () => {
   };
 
   const goToAdminPanel = () => {
-    navigate('/admin/panel'); // Перенаправление на панель администратора
+    navigate('/account'); // Перенаправление на панель администратора
   };
 
   return (

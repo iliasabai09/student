@@ -1,4 +1,4 @@
-require('dotenv').config(); 
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -6,31 +6,32 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
-const { jwtSecret } = require('./config'); 
+const jwtSecret = "mySecretKey";
 
 const app = express();
 const port = process.env.PORT || 5002;
 
 app.use(cors({
-  origin: 'http://localhost:3000',
-  methods: 'GET,POST,PUT,DELETE',
-  allowedHeaders: 'Content-Type,Authorization'
+  origin: '*',
+  methods: 'GET,POST,PUT,DELETE'
 }));
+
+app.options('*', cors()); // Для обработки предварительных запросов
 
 app.use(bodyParser.json());
 
 
-const mongoURI = process.env.MONGO_URI; 
+const mongoURI = process.env.MONGO_URI;
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
+  useUnifiedTopology: false,
 })
-  .then(() => console.log('Connected to MongoDB Atlas'))
-  .catch(err => console.error('Failed to connect to MongoDB Atlas', err));
+    .then(() => console.log('Connected to MongoDB Atlas'))
+    .catch(err => console.error('Failed to connect to MongoDB Atlas', err));
 
 const User = mongoose.model('User', new mongoose.Schema({
-  username: { type: String, required: true },
-  password: { type: String, required: true }
+  username: {type: String, required: true},
+  password: {type: String, required: true}
 }));
 
 const Product = mongoose.model('Product', new mongoose.Schema({
@@ -51,7 +52,9 @@ app.post('/register', async (req, res) => {
       password: hashedPassword,
     });
     await user.save();
-    res.sendStatus(201);
+    // res.send();
+    const token = jwt.sign({hash: hashedPassword}, jwtSecret, {expiresIn: '1h'});
+    res.json({token});
   } catch (error) {
     console.error('Error during registration:', error);
     res.status(500).json({ message: 'Error during registration' });
@@ -61,24 +64,19 @@ app.post('/register', async (req, res) => {
 app.post('/login', async (req, res) => {
   const { username, password } = req.body;
   console.log('Login request data:', { username, password });
-
   try {
     const user = await User.findOne({ username });
-
     if (!user) {
       console.log('User not found');
-      return res.status(401).json({ message: 'Invalid username or password' });
+      return res.status(401).json({message: 'Invalid username or password'});
     }
-
     const isMatch = await bcrypt.compare(password, user.password);
-
     if (!isMatch) {
       console.log('Password does not match');
-      return res.status(401).json({ message: 'Invalid username or password' });
+      return res.status(401).json({message: 'Invalid username or password'});
     }
-
-    const token = jwt.sign({ userId: user._id }, jwtSecret, { expiresIn: '1h' });
-    res.json({ token });
+    const token = jwt.sign({userId: user._id}, jwtSecret, {expiresIn: '1h'});
+    res.json({token, userId: user._id});
   } catch (error) {
     console.error('Error during login:', error);
     res.status(500).json({ message: 'Error during login' });
