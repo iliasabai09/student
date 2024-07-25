@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {Link, useNavigate} from 'react-router-dom';
 import Modal from 'react-modal';
 import '../Styles/Gallerypage.css';
 import SearchBar from './SearchBar';
 import Resizer from 'react-image-file-resizer';
+import axios from "axios";
 
 Modal.setAppElement('#root');
 
-const GalleryPage = ({ addToCart, addToFavorites }) => {
+const GalleryPage = ({addToCart, addToFavorites}) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [products, setProducts] = useState(() => {
     const savedProducts = localStorage.getItem('products');
@@ -20,6 +21,7 @@ const GalleryPage = ({ addToCart, addToFavorites }) => {
     price: '',
     description: '',
     image: '',
+    quantity: 1,
   });
 
   const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
@@ -75,14 +77,18 @@ const GalleryPage = ({ addToCart, addToFavorites }) => {
   const openAddProductModal = () => {
     setModalIsOpen(true);
   };
-
+  const saveProduct = () => {
+    axios.post('http://localhost:5002/products', newProduct).then(res => console.log(res));
+  }
   const closeAddProductModal = () => {
+    saveProduct();
     setModalIsOpen(false);
     setNewProduct({
       name: '',
       price: '',
       description: '',
       image: '',
+      quantity: 1,
     });
   };
 
@@ -121,9 +127,10 @@ const GalleryPage = ({ addToCart, addToFavorites }) => {
     closeAddProductModal();
   };
 
-  const handleDeleteProduct = (productId) => {
-    const updatedProducts = products.filter(product => product.id !== productId);
+  const handleDeleteProduct = (name) => {
+    const updatedProducts = products.filter(product => product.name !== name);
     setProducts(updatedProducts);
+    axios.post('http://localhost:5002/products/delete', {name}).then(res => console.log(res));
   };
 
   return (
@@ -141,7 +148,7 @@ const GalleryPage = ({ addToCart, addToFavorites }) => {
               <button className="cart-button" onClick={() => addToCart(product)}>🛒</button>
               <button className="like-button" onClick={() => addToFavorites(product)}>❤️</button>
               {isAdmin && (
-                <button className="delete-button" onClick={() => handleDeleteProduct(product.id)}>Удалить</button>
+                <button className="delete-button" onClick={() => handleDeleteProduct(product.name)}>Удалить</button>
               )}
             </div>
           </div>

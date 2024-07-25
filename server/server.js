@@ -89,19 +89,28 @@ app.post('/admin/login', (req, res) => {
     res.json({ token });
 });
 
-app.post('/api/products', async (req, res) => {
-  console.log('Received data:', req.body);
-
+app.post('/products', async (req, res) => {
   try {
     const product = new Product({
       name: req.body.name,
       quantity: req.body.quantity,
-      price: req.body.price
+      description: req.body.description,
+      price: req.body.price,
+      image: req.body.image
     });
 
     const savedProduct = await product.save();
     console.log('Product saved:', savedProduct);
     res.status(201).json(savedProduct);
+  } catch (error) {
+    console.error('Error adding product:', error);
+    res.status(500).json({ message: 'Ошибка при добавлении продукта' });
+  }
+});
+app.post('/products/delete', async (req, res) => {
+  try {
+    const response = await Product.findOneAndDelete({name:req.body.name});
+    res.status(201).json(response);
   } catch (error) {
     console.error('Error adding product:', error);
     res.status(500).json({ message: 'Ошибка при добавлении продукта' });
