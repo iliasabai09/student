@@ -7,6 +7,7 @@ const bcrypt = require('bcryptjs');
 const connectionMongoose = require("./connections/connectionMongo");
 const User = require("./schemas/User.schema");
 const Product = require("./schemas/Product.schema");
+const Order = require("./schemas/Order.schema");
 
 const jwtSecret = "mySecretKey";
 
@@ -107,6 +108,21 @@ app.post('/products', async (req, res) => {
     res.status(500).json({ message: 'Ошибка при добавлении продукта' });
   }
 });
+
+app.post('/orders', async (req, res) => {
+  try {
+    const order = new Order(req.body);
+
+    const saveOrder = await order.save();
+    console.log('Order saved:', saveOrder);
+    res.status(201).json(saveOrder);
+  } catch (error) {
+    console.error('Error adding product:', error);
+    res.status(500).json({ message: 'Ошибка при добавлении продукта' });
+  }
+});
+
+
 app.post('/products/delete', async (req, res) => {
   try {
     const response = await Product.findOneAndDelete({name:req.body.name});

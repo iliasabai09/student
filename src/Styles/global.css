@@ -1,0 +1,77 @@
+/* global.css */
+body {
+    font-family: 'Georgia', 'Times New Roman', serif; /* Основной текст */
+    color: #2A2A28; /* Основной цвет текста */
+    background-color: #ECECEC; /* Цвет фона страницы */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Заголовки */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Georgia', 'Times New Roman', serif; /* Заголовки */
+    color: #2A2A28; /* Цвет заголовков */
+  }
+  
+  /* Ссылки */
+  a {
+    color: #024F37; /* Цвет ссылок */
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+  }
+  
+  /* Кнопки */
+  button {
+    background-color: #024F37; /* Цвет фона кнопок */
+    color: white; /* Цвет текста кнопок */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #2A2A28; /* Цвет фона кнопок при наведении */
+  }
+  
+  /* Формы */
+  form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    max-width: 500px;
+    margin: 20px auto;
+  }
+  
+  form div {
+    margin-bottom: 10px;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  form input, form textarea {
+    width: 100%;
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  form button {
+    background-color: #024F37;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background-color: #2A2A28; /* Цвет фона кнопок формы при наведении */
+  }

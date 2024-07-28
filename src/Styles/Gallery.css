@@ -1,5 +1,5 @@
 .gallery-page {
-  background-color: #ffe6e6;
+  background-color: #ECECEC; /* Светлый фон страницы галереи */
   padding: 20px;
   text-align: center;
 }
@@ -32,7 +32,7 @@
 }
 
 .view-details-2 {
-  background-color: #ff69b4;
+  background-color: #024F37; /* Изумрудный цвет для кнопки просмотра деталей */
   color: white;
   border: none;
   border-radius: 5px;
@@ -41,11 +41,19 @@
   font-size: 14px;
 }
 
+.view-details-2:hover {
+  background-color: #1f6b5f; /* Цвет кнопки при наведении */
+}
+
 .cart-button, .like-button {
   background-color: white;
-  color: #ff69b4;
-  border: 1px solid #ff69b4;
+  color: #024F37; /* Изумрудный цвет для кнопок корзины и лайка */
+  border: 1px solid #024F37;
   border-radius: 5px;
   padding: 5px 10px;
   font-size: 14px;
+}
+
+.cart-button:hover, .like-button:hover {
+  background-color: #f0f0f0; /* Светлый фон при наведении на кнопки */
 }

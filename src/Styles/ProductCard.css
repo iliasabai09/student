@@ -24,6 +24,7 @@
 .product-card .product-info h3 {
   margin: 0 0 10px;
   font-size: 1.2em;
+  color: #024F37; /* Изумрудный цвет для заголовков */
 }
 
 .product-card .product-info p {
@@ -33,5 +34,5 @@
 
 .product-card .product-price {
   font-weight: bold;
-  color: #e91e63; 
+  color: #024F37; /* Изумрудный цвет для цены */
 }

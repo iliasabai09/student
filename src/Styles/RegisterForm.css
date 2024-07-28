@@ -1,43 +1,47 @@
-/* src/Styles/RegisterForm.css */
 .register-form {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .register-form h2 {
-    text-align: center;
-  }
-  
-  .register-form input {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .register-form button {
-    padding: 10px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .register-form button:hover {
-    background-color: #218838;
-  }
-  
-  .admin-button {
-    background-color: #007bff;
-    color: white;
-    margin-top: 10px;
-  }
-  
-  .admin-button:hover {
-    background-color: #0056b3;
-  }
-  
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #ffffff; /* Фон формы регистрации */
+}
+
+.register-form h2 {
+  text-align: center;
+  color: #024F37; /* Изумрудный цвет для заголовка */
+}
+
+.register-form input {
+  margin-bottom: 15px; /* Увеличено расстояние между полями */
+  padding: 12px; /* Увеличено внутреннее расстояние */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.register-form button {
+  padding: 12px;
+  background-color: #024F37; /* Изумрудный цвет для кнопки */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.register-form button:hover {
+  background-color: #018c6a; /* Темно-изумрудный цвет при наведении */
+}
+
+.admin-button {
+  background-color: #024F37; /* Изумрудный цвет для кнопки администратора */
+  color: white;
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.admin-button:hover {
+  background-color: #018c6a; /* Темно-изумрудный цвет при наведении */
+}

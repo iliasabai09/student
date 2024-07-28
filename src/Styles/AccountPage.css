@@ -10,5 +10,43 @@
   .account-page p {
     margin-bottom: 10px;
   }
-  
+  /* AccountPage.css */
+
+.account-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+.welcome-message {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.button {
+  background-color: #007bff;
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #000000;
+}
+
+.gallery-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 20px;
+}
+
   

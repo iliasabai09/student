@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import '../Styles/CheckoutPage.css';
+import axios from "axios";
 
 const CheckoutPage = ({ cart, totalSum }) => {
   const [country, setCountry] = useState('');
@@ -10,10 +11,20 @@ const CheckoutPage = ({ cart, totalSum }) => {
   const [paymentTiming, setPaymentTiming] = useState('immediate');
   const [agreement, setAgreement] = useState(false);
   const [orderSuccess, setOrderSuccess] = useState(false);
+  
+
 
   const handleOrder = () => {
     if (agreement) {
-      // Обработка оформления заказа здесь
+      const body = {
+        country,
+        city,
+        address,
+        payType: paymentMethod,
+        cardNumber,
+        payTime: paymentTiming
+      }
+      axios.post('http://localhost:5002/orders', body);
       setOrderSuccess(true);
     } else {
       alert("Пожалуйста, согласитесь с условиями.");

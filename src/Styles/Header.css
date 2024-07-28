@@ -1,11 +1,11 @@
-header {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
-  padding: 10px 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  background-color: #ECECEC; 
+  padding: 15px 30px; /* Увеличен отступ для большего пространства */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Более заметная тень */
+  border-bottom: 1px solid #ddd; /* Легкая граница снизу */
 }
 
 .logo-container {
@@ -14,7 +14,7 @@ header {
 }
 
 .logo {
-  width: 70px; 
+  width: 80px; /* Немного увеличен размер логотипа */
   height: auto;
 }
 
@@ -26,12 +26,18 @@ nav ul {
 }
 
 nav ul li {
-  margin: 0 15px;
+  margin: 0 20px; /* Увеличено расстояние между пунктами меню */
 }
 
 nav ul li a {
   text-decoration: none;
-  color: #333;
+  color: #2A2A28; /* Цвет текста ссылок */
+  font-weight: bold; /* Сделать текст жирным */
+  transition: color 0.3s ease; /* Плавный переход цвета */
+}
+
+nav ul li a:hover {
+  color:  #AFB6A4;
 }
 
 .header .icons {
@@ -40,24 +46,27 @@ nav ul li a {
 }
 
 .header .icons a {
-  margin-left: 15px; 
-  text-decoration: none; 
+  font-size: 1.5em; /* Увеличен размер иконок */
+  color: #2A2A28; /* Цвет иконок */
+  margin-left: 20px; /* Увеличено расстояние между иконками */
+  transition: color 0.3s ease; /* Плавный переход цвета */
 }
 
-.header .icons a:last-child {
-  margin-right: 0; 
+.header .icons a:hover {
+  color: #AFB6A4;
 }
 
 .logout-button {
-  background-color: #ff69b4;
+  background-color: #AFB6A4;
   color: white;
   border: none;
-  padding: 8px 15px;
+  padding: 10px 20px; /* Увеличены отступы кнопки */
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Плавные переходы фона и масштабирования */
 }
 
 .logout-button:hover {
-  background-color: #ff69b4;
+  background-color: #AFB6A4;
+  transform: scale(1.05); /* Немного увеличивается кнопка при наведении */
 }

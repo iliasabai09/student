@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Modal from 'react-modal';
 import '../Styles/Gallerypage.css';
 import SearchBar from './SearchBar';
@@ -8,7 +8,7 @@ import axios from "axios";
 
 Modal.setAppElement('#root');
 
-const GalleryPage = ({addToCart, addToFavorites}) => {
+const GalleryPage = ({ addToCart, addToFavorites }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [products, setProducts] = useState(() => {
     const savedProducts = localStorage.getItem('products');
@@ -67,7 +67,7 @@ const GalleryPage = ({addToCart, addToFavorites}) => {
     e.preventDefault();
     if (adminCredentials.username === '8888' && adminCredentials.password === '0000') {
       setIsAdmin(true);
-      setIsAdminModalOpen(false); // Close login modal if authentication is successful
+      setIsAdminModalOpen(false); 
       setAdminMessage('Отлично! Вы вошли как администратор.');
     } else {
       alert('Неверный логин или пароль');
@@ -77,9 +77,11 @@ const GalleryPage = ({addToCart, addToFavorites}) => {
   const openAddProductModal = () => {
     setModalIsOpen(true);
   };
+
   const saveProduct = () => {
     axios.post('http://localhost:5002/products', newProduct).then(res => console.log(res));
-  }
+  };
+
   const closeAddProductModal = () => {
     saveProduct();
     setModalIsOpen(false);
@@ -130,12 +132,12 @@ const GalleryPage = ({addToCart, addToFavorites}) => {
   const handleDeleteProduct = (name) => {
     const updatedProducts = products.filter(product => product.name !== name);
     setProducts(updatedProducts);
-    axios.post('http://localhost:5002/products/delete', {name}).then(res => console.log(res));
+    axios.post('http://localhost:5002/products/delete', { name }).then(res => console.log(res));
   };
 
   return (
     <div className="gallery-page">
-      <h2>Каталог товаров и продуктов</h2>
+      <h2>Product Catalog</h2>
       <SearchBar placeholder="Поиск по каталогу" handleSearch={handleSearch} />
       <div className="products-list">
         {filteredProducts.map((product) => (
@@ -156,7 +158,7 @@ const GalleryPage = ({addToCart, addToFavorites}) => {
       </div>
 
       {!isAdmin && (
-        <button onClick={openAdminModal} className="admin-button">Для админов</button>
+        <button onClick={openAdminModal} className="admin-button">Admin</button>
       )}
 
       <Modal
@@ -176,14 +178,14 @@ const GalleryPage = ({addToCart, addToFavorites}) => {
             Пароль:
             <input type="password" value={adminCredentials.password} onChange={handlePasswordChange} />
           </label>
-          <button type="submit">Войти</button>
+          <button type="submit">Enter</button>
         </form>
       </Modal>
 
       {isAdmin && (
         <div>
           <p>{adminMessage}</p>
-          <button onClick={openAddProductModal} className="add-product-button">Добавить</button>
+          <button onClick={openAddProductModal} className="add-product-button">Add</button>
         </div>
       )}
 
@@ -194,22 +196,22 @@ const GalleryPage = ({addToCart, addToFavorites}) => {
         className="modal"
         overlayClassName="overlay"
       >
-        <h2>Добавить новый товар</h2>
+        <h2>Add a new product</h2>
         <form onSubmit={handleSubmit}>
           <label>
-            Название:
+            Name:
             <input type="text" name="name" value={newProduct.name} onChange={handleChange} required />
           </label>
           <label>
-            Описание:
+          Description:
             <textarea name="description" value={newProduct.description} onChange={handleChange} required />
           </label>
           <label>
-            Цена:
+          Price:
             <input type="text" name="price" value={newProduct.price} onChange={handleChange} required />
           </label>
           <label>
-            Фото:
+          Photo:
             <input type="file" accept="image/*" onChange={handleImageChange} required />
           </label>
           <button type="submit">Добавить</button>

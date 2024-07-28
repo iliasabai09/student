@@ -1,42 +1,49 @@
+/* Footer.css */
+
 footer {
-  background-color: #333;
+  background-color: #024F37;
+  color: #ECECEC; /* Светлый текст для футера */
+  padding: 40px 20px;
   text-align: center;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  padding: 20px 0;
-  color: #fff;
 }
 
 .footer-content {
   display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  margin-bottom: 10px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
 .footer-column {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
+  flex: 1;
+  min-width: 200px;
+  margin: 0 20px;
 }
 
 .footer-column h4 {
-  margin-bottom: 10px;
-  font-size: 16px;
-  font-weight: bold;
+  color: #ECECEC; /* Розовый цвет заголовков */
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-family: 'Georgia', 'Times New Roman', serif; /* Шрифт для заголовков */
 }
 
 .footer-link {
-  color: #fff;
-  margin: 5px 0;
+  display: block;
+  color: #ECECEC; /* Цвет ссылок */
   text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 16px;
+  transition: color 0.3s ease;
 }
 
 .footer-link:hover {
-  text-decoration: underline;
+  color: #AFB6A4;
 }
 
 .footer {
-  margin-top: 10px;
+  font-size: 14px;
+  margin: 0;
+  padding: 10px;
+  background-color: #1F1F1F; /* Темный фон для подвала */
+  color: #ECECEC; /* Светлый текст для подвала */
 }

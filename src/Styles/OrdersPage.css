@@ -1,0 +1,29 @@
+.order-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    width: 300px; 
+    margin: 15px; /* Добавьте отступы между карточками */
+  }
+  
+  .order-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .order-card .order-info {
+    padding: 15px;
+  }
+  
+  .order-card .order-info h3 {
+    margin: 0 0 10px;
+    font-size: 1.2em;
+    color: #024F37; /* Изумрудный цвет для заголовков */
+  }
+  
+  .order-card .order-info p {
+    margin: 0 0 10px;
+    color: #555;
+  }
+  

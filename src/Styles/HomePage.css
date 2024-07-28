@@ -1,20 +1,6 @@
 .homepage {
-  background-color: #ffffffd4;
+  background-color: #ECECEC; /* Background color */
   padding: 20px;
-}
-
-.welcome-page {
-  text-align: center;
-  margin: 20px;
-}
-
-
-.shop-now {
-  background-color: #ff69b4;
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
 }
 
 .slider-section {
@@ -24,47 +10,124 @@
 .slider-section .slide img {
   width: 100%;
   height: auto;
+  max-width: 800px; /* Smaller width for slider images */
   margin: 0 auto;
   display: block;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for slider images */
 }
 
-.products-section, .reviews-section {
+.info-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 20px 0;
 }
 
-.products-list, .reviews-list {
+.info-image, .info-text {
+  flex: 1;
+  text-align: center;
+}
+
+.info-image img, .info-text .green-box {
+  width: 100%;
+  height: auto;
+  max-width: 400px; /* Width for images and green box */
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for images and green box */
+}
+
+.info-text {
+  padding-left: 20px;
+}
+
+.green-box {
+  background-color: #024f3799;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 100%;
+  max-width: 400px; /* Width for green box */
+  margin: 0 auto;
+}
+
+.green-box h2, .green-box p {
+  color: white;
+  font-family: 'Recolors Personal Use', sans-serif; /* Use font for headings */
+}
+
+.green-box p {
+  font-family: 'Zt Chablis', serif; /* Use font for text */
+}
+
+.info-button {
+  background-color: #024F37;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.info-button:hover {
+  background-color: #AFB6A4;
+}
+
+.products-section, .reviews-section, .perfume-section {
+  margin: 20px 0;
+}
+
+.products-list, .reviews-list, .perfume-list {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
 }
 
-.product-card .view-details {
+.product-card, .review {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for product and review cards */
+  transition: box-shadow 0.3s ease;
+}
+
+.product-card:hover, .review:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.product-card h3, .review h3 {
+  margin: 0 0 10px;
+  font-family: 'Recolors Personal Use', sans-serif; /* Use font for headings */
+}
+
+.product-card p, .review p {
+  font-family: 'Zt Chablis', serif; /* Use font for text */
+  color: #2A2A28; /* Text color */
+}
+
+.view-details {
   display: inline-block;
-  background-color: #ff69b4;
+  background-color: #024F37;
   color: white;
   padding: 10px 20px;
   text-decoration: none;
   border-radius: 5px;
-  margin-bottom: 10px; 
+  margin-top: 10px;
 }
 
-.review {
-  background-color: white;
-  border: 1px solid white;
-  border-radius: 10px;
-  padding: 15px;
-  width: 300px;
-  transition: box-shadow 0.3s ease;
-}
-
-.review:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.review h3 {
-  margin: 0 0 10px;
-}
+.view-details:hover {
+  background-color: #2A2A28;
+  }
 
 form {
   margin-top: 20px;
@@ -91,12 +154,11 @@ form input, form textarea {
   padding: 6px;
   border-radius: 5px;
   border: 1px solid #ddd;
-  padding-right: 3px;
-  padding-left: 3px;
+  margin-bottom: 10px;
 }
 
 form button {
-  background-color: #ff69b4;
+  background-color: #024F37;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -104,62 +166,55 @@ form button {
   cursor: pointer;
 }
 
-.login-prompt {
-  text-align: center;
-}
-
-.login-prompt p {
-  margin-bottom: 20px;
-}
-
 .contact-section {
-  padding: 50px 20px; 
+  margin: 20px 0;
   text-align: center;
-  background-color: #f9f9f9;
-}
-
-.contact-section h2 {
-  margin-bottom: 20px;
 }
 
 .contact-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
 }
 
 .contact-form label {
-  margin-bottom: 10px;
+  display: block;
+  margin-bottom: 5px;
 }
 
 .contact-form input {
-  margin-bottom: 20px;
-  padding: 10px;
+  width: 100%;
+  padding: 6px;
   border-radius: 5px;
-  border: 1px solid #ccc;
-  width: 100%; 
-  max-width: 400px; 
-  box-sizing: border-box; 
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
 }
 
 .contact-form button {
-  padding: 10px 20px;
-  background-color: #ff69b4;
+  background-color: #024F37;
   color: white;
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  width: 100%; 
-  max-width: 400px; 
-  box-sizing: border-box;
-}
-.login-page-text{
-  text-align: center;
-}
-.register-link{
-  text-align: center;
+  cursor: pointer;
 }
 
-.register-page h2{
+
+/* Style for the registration link */
+.register-link {
   text-align: center;
+  margin-top: 20px;
+}
+
+/* Style for the registration link text */
+.register-link a {
+  color: #024F37; /* Emerald color */
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
 }

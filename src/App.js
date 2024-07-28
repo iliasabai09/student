@@ -14,6 +14,7 @@ import ProductCard from './Gallerypage/ProductCard';
 import DeliveryPage from './DeliveryPaymentPage/DeliveryPaymentPage';
 import AdminPanel from './Components/AdminPanel';
 import CheckoutPage from './Gallerypage/CheckoutPage'; // Импортируйте компонент CheckoutPage
+import OrdersPage from './Gallerypage/OrdersPage';
 
 const App = () => {
   const [favorites, setFavorites] = useState([]);
@@ -49,6 +50,7 @@ const App = () => {
             <Route path="/checkout" element={<CheckoutPage cart={cart} totalSum={totalSum} />} /> {/* Добавьте маршрут для CheckoutPage */}
             <Route path="/delivery" element={<DeliveryPage />} />
             <Route path="/admin/panel" element={<AdminPanel />} />
+            <Route path="/orders" component={OrdersPage} />
           </Routes>
         </main>
         <Footer />

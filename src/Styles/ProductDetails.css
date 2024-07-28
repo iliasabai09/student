@@ -1,11 +1,10 @@
-.product-page{
-  background-color:#ffe6e6; 
+.product-page {
+  background-color: #ECECEC; /* Цвет фона страницы */
   min-height: 100vh;
   display: flex;
   align-items: flex-start; 
   justify-content: center;
   padding: 0;
-  
 }
 
 .product-card-details {
@@ -15,8 +14,8 @@
   padding: 20px;
   margin: 20px auto;
   max-width: 800px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #ffffff; 
 }
@@ -28,8 +27,8 @@
 
 .product-image-section img {
   width: 100%; 
-  height: 100%;
-  border-radius: 8px;
+  height: auto; /* Пропорциональная высота изображения */
+  border-radius: 10px;
 }
 
 .product-info-section {
@@ -39,10 +38,12 @@
 
 .product-info-section h2 {
   margin: 10px 0;
+  color: #024F37; /* Изумрудный цвет для заголовков */
 }
 
 .product-info-section p {
   margin: 5px 0;
+  color: #333; /* Тёмно-серый цвет для текста */
 }
 
 .product-actions {
@@ -53,11 +54,11 @@
 }
 
 .like-button, .cart-button, .back-button {
-  border: 1px solid #ff69b4; 
+  border: 1px solid #024F37; /* Изумрудный цвет для границы */
   border-radius: 8px;
   padding: 8px 10px;
   background: none; 
-  color: #ff69b4; 
+  color: #024F37; /* Изумрудный цвет для текста */
   cursor: pointer;
   text-decoration: none;
   font-size: 14px;
@@ -67,7 +68,7 @@
 }
 
 .like-button:hover, .cart-button:hover, .back-button:hover {
-  background-color: #ff85c0;
+  background-color: #d8f5e1; /* Светло-зелёный цвет для фона при наведении */
 }
 
 .like-button span, .cart-button span {

@@ -12,31 +12,31 @@ const LoginForm = ({onLogin}) => {
         e.preventDefault();
 
         try {
-            console.log('Login request data:', {username, password}); // Отладка отправляемых данных
+            console.log('Login request data:', {username, password}); 
 
       const response = await axios.post('http://localhost:5002/login', {
         username,
         password,
       });
 
-            console.log('Login response:', response.data); // Отладка ответа от сервера
+            console.log('Login response:', response.data); 
 
-            // Сохранение токена в localStorage
+           
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('userId', response.data.userId);
 
-            // Уведомление родительского компонента
+          
             onLogin && onLogin(username);
 
-            // Перенаправление пользователя
+            
             goToAdminPanel();
         } catch (error) {
-            console.error('Login error:', error.response ? error.response.data : error.message); // Отладка ошибок
+            console.error('Login error:', error.response ? error.response.data : error.message); 
             alert('Invalid username or password');
         }
     };
     const goToAdminPanel = () => {
-        navigate('/account'); // Перенаправление на панель администратора
+        navigate('/account'); 
     };
     return (
         <div className="login-page">
@@ -63,7 +63,7 @@ const LoginForm = ({onLogin}) => {
         <button type="submit">Вход</button>
       </form>
       <p className="register-link">
-        Еще нет аккаунта? <Link to="/register">Регистрация</Link>
+        Еще нет аккаунта? <Link to="/register">Register</Link>
       </p>
     </div>
   );

@@ -4,9 +4,9 @@ const Logout = () => {
   const handleLogout = () => {
     try {
       localStorage.removeItem('token');
-      window.location.href = '/login'; // Перенаправление на страницу входа
+      window.location.href = '/login'; 
     } catch (error) {
-      console.error('Error during logout:', error); // Логирование ошибки
+      console.error('Error during logout:', error); 
     }
   };
 

@@ -1,3 +1,4 @@
+// src/components/Header.js
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../Styles/Header.css';
@@ -27,22 +28,23 @@ const Header = () => {
       </div>
       <nav>
         <ul>
-          <li><Link to="/">Главная</Link></li>
-          <li><Link to="/about">О нас</Link></li>
-          <li><Link to="/gallery">Продукты</Link></li>
-          <li><Link to="/delivery">Доставка и оплата</Link></li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About Us</Link></li>
+          <li><Link to="/gallery">Products</Link></li>
+          <li><Link to="/delivery">Delivery & Payment</Link></li>
+          <li><Link to="/orders">Orders</Link></li> 
           {isAuthenticated ? (
             <>
-              <li><Link to="/account">Аккаунт</Link></li>
-              <li><button className="logout-button" onClick={handleLogout}>Выход</button></li>
+              <li><Link to="/account">Account</Link></li>
+              <li><button className="logout-button" onClick={handleLogout}>Logout</button></li>
             </>
           ) : (
-            <li><Link to="/login">Вход</Link></li>
+            <li><Link to="/login">Login</Link></li>
           )}
         </ul>
       </nav>
       <div className="icons">
-        <Link to="/favorites">❤️</Link>
+        <Link to="/favorites" className="heart-icon">❤️</Link>
         <Link to="/cart">🛒</Link>
       </div>
     </header>
@@ -50,5 +52,3 @@ const Header = () => {
 };
 
 export default Header;
-
-
