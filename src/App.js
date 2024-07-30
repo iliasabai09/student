@@ -50,7 +50,7 @@ const App = () => {
             <Route path="/checkout" element={<CheckoutPage cart={cart} totalSum={totalSum} />} /> {/* Добавьте маршрут для CheckoutPage */}
             <Route path="/delivery" element={<DeliveryPage />} />
             <Route path="/admin/panel" element={<AdminPanel />} />
-            <Route path="/orders" component={OrdersPage} />
+            <Route path="/orders" element={<OrdersPage />} />
           </Routes>
         </main>
         <Footer />

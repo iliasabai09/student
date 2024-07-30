@@ -31,7 +31,6 @@ connectionMongoose();
 app.post('/register', async (req, res) => {
   const { username, password } = req.body;
   console.log('Register request data:', { username, password });
-
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = new User({
@@ -118,18 +117,38 @@ app.post('/orders', async (req, res) => {
     res.status(201).json(saveOrder);
   } catch (error) {
     console.error('Error adding product:', error);
-    res.status(500).json({ message: 'Ошибка при добавлении продукта' });
+    res.status(500).json({message: 'Ошибка при добавлении продукта'});
+  }
+});
+
+app.put('/orders', async (req, res) => {
+  try {
+    const order = await Order.findByIdAndUpdate(req.body._id, req.body)
+    res.status(201).json(order);
+  } catch (error) {
+    console.error('Error adding product:', error);
+    res.status(500).json({message: 'Ошибка при добавлении продукта'});
+  }
+});
+
+app.get('/orders', async (req, res) => {
+  try {
+    const orders = await Order.find();
+    res.status(201).json(orders);
+  } catch (error) {
+    console.error('Error adding product:', error);
+    res.status(500).json({message: 'Ошибка при добавлении продукта'});
   }
 });
 
 
 app.post('/products/delete', async (req, res) => {
   try {
-    const response = await Product.findOneAndDelete({name:req.body.name});
+    const response = await Product.findOneAndDelete({name: req.body.name});
     res.status(201).json(response);
   } catch (error) {
     console.error('Error adding product:', error);
-    res.status(500).json({ message: 'Ошибка при добавлении продукта' });
+    res.status(500).json({message: 'Ошибка при добавлении продукта'});
   }
 });
 
